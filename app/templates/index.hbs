@@ -1,0 +1,71 @@
+{{#bs-navbar}}
+  <div class="container">
+    JSList
+  </div>
+{{/bs-navbar}}
+
+<div class="container">
+  <div class="collections-strip clearfix">
+    <div class="collections-strip-inner">
+      {{#each collections as |collection|}}
+        {{collection-block collection=collection}}
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<div class="container" style="margin-top: 20px;">
+  <button class="btn">
+    Routing
+  </button>
+  <button class="btn">
+    Virtual DOM
+  </button>
+  <button class="btn">
+    CLI tools
+  </button>
+  <button class="btn">
+    Unidirectional data flow
+  </button>
+  <button class="btn">
+    Templating engine
+  </button>
+  <button class="btn">
+    Size gzipped
+  </button>
+  <button class="btn">
+    Old browser support
+  </button>
+  <button class="btn">
+    Lazy module loading
+  </button>
+  <button class="btn">
+    Integrated testing
+  </button>
+  <button class="btn">
+    Stable
+  </button>
+  <button class="btn">
+    MVC
+  </button>
+  <button class="btn">
+    Integrated state management
+  </button>
+  <button class="btn">
+    Server side rendering
+  </button>
+  <button class="btn">
+    2-way binding
+  </button>
+  <button class="btn">
+    Full-stack
+  </button>
+</div>
+
+<div class="container">
+  {{#each frameworks as |framework|}}
+    {{framework-block framework=framework}}
+  {{/each}}
+</div>
+
+{{outlet}}

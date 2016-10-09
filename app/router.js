@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('index', { path: '/' }, function() {
+    this.route('framework', { path: '/:framework_id' });
+  })
 });
 
 export default Router;
