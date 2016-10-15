@@ -8,7 +8,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('index', { path: '/' }, function() {
-    this.route('framework', { path: '/:framework_id' });
+    this.route('framework', { path: '/:framework_id' }, function() {
+      this.route('scores');
+      this.route('jobs');
+      this.route('community');
+      this.route('creators');
+      this.route('compare');
+    });
   })
 });
 

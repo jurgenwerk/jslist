@@ -1,3 +1,18 @@
 {{#link-to 'index.framework' framework.name class="framework-block"}}
-  {{framework.name}}
+  {{!-- <img src="{{framework.logoUrl}}"> --}}
+  <span></span>
+  <div class="framework-block__strip">
+    {{framework.id}}
+  </div>
+  <div class="framework-block__strip framework-block__strip--middle">
+    {{framework.name}}
+  </div>
+  <div class="framework-block__strip">
+    <span class="float-right">
+      {{framework.stars}} ★
+    </span>
+    <span class="pull-right">
+      {{framework.size}}KB gzipped
+    </span>
+  </div>
 {{/link-to}}
