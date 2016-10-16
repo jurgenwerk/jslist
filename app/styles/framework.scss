@@ -1,0 +1,24 @@
+.framework-modal {
+  width: 1000px;
+}
+
+.middle-stripe-link {
+  font-size: 18px;
+  color: #000;
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  text-decoration: none !important;
+
+  &.active {
+    border-bottom: 1px solid;
+  }
+}
+
+.framework-modal__middle-stripe {
+  margin-bottom: 10px;
+}
+
+.framework-modal__main-stripe {
+  margin-top: 2em;
+}

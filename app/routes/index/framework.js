@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     }
   },
   model(params) {
-    return params;
+    return this.modelFor('index').findBy('name', params.framework_id);
   },
   actions: {
     goToIndex() {

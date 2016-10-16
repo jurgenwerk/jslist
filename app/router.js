@@ -14,6 +14,7 @@ Router.map(function() {
       this.route('community');
       this.route('creators');
       this.route('compare');
+      this.route('description');
     });
   })
 });

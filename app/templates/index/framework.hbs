@@ -3,7 +3,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">
-          {{model.framework_id}} by Google
+          {{framework.name}} by Google
         </h3>
       </div>
       <div class="panel-body">
@@ -12,6 +12,7 @@
         </div>
         <div class="framework-modal__middle-stripe">
           {{#link-to 'index.framework.scores' class="middle-stripe-link"}}Scores{{/link-to}}
+          {{#link-to 'index.framework.description' class="middle-stripe-link"}}Description{{/link-to}}
           {{#link-to 'index.framework.creators' class="middle-stripe-link"}}Creators{{/link-to}}
           {{#link-to 'index.framework.jobs' class="middle-stripe-link"}}Jobs{{/link-to}}
           {{#link-to 'index.framework.community' class="middle-stripe-link"}}Community{{/link-to}}
