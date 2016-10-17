@@ -15,63 +15,15 @@
 </div>
 
 <div class="container" style="margin-top: 20px;">
-  <button class="btn btn-filter">
-    Routing
-  </button>
-  <button class="btn btn-filter">
-    Virtual DOM
-  </button>
-  <button class="btn btn-filter">
-    CLI tools
-  </button>
-  <button class="btn btn-filter">
-    Unidirectional data flow
-  </button>
-  <button class="btn btn-filter">
-    2-way binding
-  </button>
-  <button class="btn btn-filter">
-    Templating engine
-  </button>
-  <button class="btn btn-filter">
-    Size gzipped
-  </button>
-  <button class="btn btn-filter">
-    Old browser support
-  </button>
-  <button class="btn btn-filter">
-    Lazy module loading
-  </button>
-  <button class="btn btn-filter">
-    Integrated testing
-  </button>
-  <button class="btn btn-filter">
-    Stable
-  </button>
-  <button class="btn btn-filter">
-    MVC
-  </button>
-  <button class="btn btn-filter">
-    Integrated state management
-  </button>
-  <button class="btn btn-filter">
-    Server side rendering
-  </button>
-  <button class="btn btn-filter">
-    Great documentation
-  </button>
-  <button class="btn btn-filter">
-    Functional
-  </button>
-  <button class="btn btn-filter">
-    JSX
-  </button>
-  <button class="btn btn-filter">
-    Native
-  </button>
-  <button class="btn btn-filter">
-    Full-stack
-  </button>
+  {{#each-in filters as |_ value|}}
+    <button class="btn btn-filter {{if (get this value.param) 'active'}}" {{action 'toggleFilter' value.param}}>
+      {{value.name}}
+    </button>
+  {{/each-in}}
+
+  <a href="#" {{action 'clearFilters'}}>
+    Clear filters
+  </a>
 </div>
 
 <div class="container">
