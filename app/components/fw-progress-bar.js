@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  valueSafe: Ember.computed('value', function() {
-    return new Ember.String.htmlSafe(this.get('value'));
+  style: Ember.computed('value', function() {
+    return new Ember.String.htmlSafe(`width: ${this.get('value')}%`);
   })
 });

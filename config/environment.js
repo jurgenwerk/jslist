@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'jslist',
     environment: environment,
     rootURL: '/',
+    apiNamespace: 'api/v1',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
@@ -25,6 +26,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.serverURL = 'http://localhost:3001';
   }
 
   if (environment === 'test') {
@@ -41,6 +43,8 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
+
+  ENV.apiBaseURL = ENV.serverURL + '/' + ENV.apiNamespace;
 
   return ENV;
 };
