@@ -15,9 +15,14 @@
 </div>
 
 <div class="container" style="margin-top: 20px;">
-  {{#each-in filters as |_ value|}}
-    <button class="btn btn-filter {{if (get this value.param) 'active'}}" {{action 'toggleFilter' value.param}}>
-      {{value.name}}
+  {{#each-in filters as |_ filter|}}
+    <button class="btn btn-filter {{if (get this filter.param) 'active'}}" {{action 'toggleFilter' filter.param}}>
+      {{#if filter.tooltip}}
+        {{#tooltip-on-element}}
+          {{filter.tooltip}}
+        {{/tooltip-on-element}}
+      {{/if}}
+      {{filter.name}}
     </button>
   {{/each-in}}
 
@@ -27,7 +32,7 @@
 </div>
 
 <div class="container">
-  {{#each frameworks as |framework|}}
+  {{#each filteredFrameworks as |framework|}}
     {{framework-block framework=framework}}
   {{/each}}
 </div>

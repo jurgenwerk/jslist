@@ -22,71 +22,95 @@ export default Ember.Controller.extend({
   "full-stack": null,
   cli: null,
 
+  frameworks: Ember.computed.alias('model'),
+  filteredFrameworks: Ember.computed('frameworks.[]', 'routing', 'virtual-dom', 'uni-flow',
+                                     '2-way-binding', 'templating', 'old-browsers', 'lazy', 'testing',
+                                     'stable', 'mvc', 'state', 'ssr', 'functional', 'jsx', 'native',
+                                     'full-stack', 'cli', function() {
+
+    return this.get('frameworks').filter(framework => {
+      let frameworkMatches = true;
+
+      for (let filter of this.filters) {
+        const filterName = filter.param;
+        const filterValue = this.get(`${filter.param}`);
+        if (filterValue != null && String(framework.get(`properties.${filterName}`)) != String(filterValue)) {
+          frameworkMatches = false;
+          break;
+        }
+      }
+
+      return frameworkMatches;
+    });
+  }),
+
   filters: [
     {
       name: "Routing",
       param: "routing",
-      tooltip: ""
+      tooltip: "Routing included by default"
     },
     {
       name: "Virtual DOM",
       param: "virtual-dom",
-      tooltip: ""
+      tooltip: "Uses DOM diffing techniques for rendering and its derivatives"
     },
     {
       name: "CLI tools",
       param: "cli",
-      tooltip: "",
+      tooltip: "Command line tools for development (bundling, testing, generators, ...)",
     },
     {
       name: "Unidirectional data flow",
       param: "uni-flow",
-      tooltip: ""
+      tooltip: "Data flows in a single direction (opposite to 2-way-binding)"
     },
     {
       name: "2-way binding",
-      param: "2-way-binding",
-      tooltip: ""
+      param: "2-way-binding"
     },
     {
       name: "Templating engine",
       param: "templating",
-      tooltip: ""
+      tooltip: "String templates with their own rendering DSL"
+    },
+    {
+      name: "JSX",
+      param: "jsx",
+      tooltip: "JavaScript based templating"
     },
     {
       name: "Old browser support",
       param: "old-browsers",
-      tooltip: ""
+      tooltip: "< IE9 support"
     },
     {
       name: "Lazy module loading",
       param: "lazy",
-      tooltip: ""
+      tooltip: "Loading parts of the app only when needed"
     },
     {
       name: "Integrated testing",
       param: "testing",
-      tooltip: ""
+      tooltip: "Testing tools included by default"
     },
     {
       name: "Stable",
       param: "stable",
-      tooltip: ""
+      tooltip: "Stable releases and follows Semantic Versioning"
     },
     {
       name: "MVC",
       param: "mvc",
-      tooltip: ""
+      tooltip: "Based on Model-View-Controller and its derivatives (MVVM,...)"
     },
     {
-      name: "Integrated State management",
-      param: "state",
-      tooltip: ""
+      name: "Integrated state management",
+      param: "state"
     },
     {
       name: "Server side rendering",
-      param: "ssr",
-      tooltip: ""
+      param: "ssr"
     },
     {
       name: "Functional",
@@ -94,19 +118,14 @@ export default Ember.Controller.extend({
       tooltip: ""
     },
     {
-      name: "JSX",
-      param: "jsx",
-      tooltip: ""
-    },
-    {
       name: "Native",
       param: "native",
-      tooltip: ""
+      tooltip: "For making standalone, native apps"
     },
     {
       name: "Full stack",
       param: "full-stack",
-      tooltip: ""
+      tooltip: "Includes back-end"
     }
   ],
 
@@ -125,7 +144,6 @@ export default Ember.Controller.extend({
     }
   },
 
-  frameworks: Ember.computed.alias('model'),
   collections: [
     // best communities, most jobs
     {
@@ -165,3 +183,22 @@ export default Ember.Controller.extend({
     }
   ]
 });
+
+
+// "routing": null,
+// "virtual-dom": null,
+// "uni-flow": null,
+// "2-way-binding": null,
+// "templating": null,
+// "old-browsers": null,
+// "lazy": null,
+// "testing": null,
+// "stable": null,
+// "mvc": null,
+// "state": null,
+// "ssr": null,
+// "functional": null,
+// "jsx": null,
+// "native": null,
+// "full-stack": null,
+// "cli": null
